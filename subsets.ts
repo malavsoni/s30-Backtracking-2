@@ -44,16 +44,30 @@ function subsets_with_pivot(nums: number[]): number[][] {
 }
 
 describe("Subsets", () => {
-  it("Happy Path - 01", () => {
+  it("Happy Path - Pivot", () => {
     let candidates = [1, 2, 3];
     expect(subsets_with_pivot(candidates)).toEqual([
       [],
       [1],
-      [2],
       [1, 2],
-      [3],
+      [1, 2, 3],
       [1, 3],
+      [2],
       [2, 3],
+      [3],
+    ]);
+  });
+
+  it("Happy Path - 0/1 Scenario", () => {
+    let candidates = [1, 2, 3];
+    expect(subsets(candidates)).toEqual([
+      [],
+      [3],
+      [2],
+      [2, 3],
+      [1],
+      [1, 3],
+      [1, 2],
       [1, 2, 3],
     ]);
   });
